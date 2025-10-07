@@ -1,0 +1,25 @@
+name: Multi Job Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - feature/docker-setup
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run tests
+        run: echo "✅ Running tests..."
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Build app
+        run: echo "🛠️ Building app..."

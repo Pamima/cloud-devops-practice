@@ -2,9 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches:
-      - main
-      - feature/docker
+    branches: [ main, feature/docker-setup ]
 
 jobs:
   build:
@@ -25,4 +23,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: pamima/hello-world:latest
+          tags: pamima/cloud-devops-practice:latest
